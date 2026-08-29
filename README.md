@@ -4,7 +4,7 @@
 
 ## 使用方法
 
-1. 将本文件夹上传到 GitHub Pages、Cloudflare Pages 或任意 HTTPS 网站。
+1. 解压后，将文件夹内的所有文件上传到 GitHub repository 的根目录（不要再套一层文件夹），再启用 GitHub Pages。
 2. 用 iPad 的 Safari 打开网址。
 3. 点 Safari 的“分享”按钮，选择“添加到主屏幕”。
 4. 以后从主屏幕图标进入。首次加载后，即使没有网络也可以使用。
