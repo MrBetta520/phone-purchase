@@ -43,7 +43,7 @@ $('model').addEventListener('input',resolveScannedUpc);$('search').addEventListe
 const isIPhone=/iPhone|iPod/.test(navigator.userAgent);
 function syncAmountKeypadViewport(){const keypad=$('amountKeypad'),viewport=window.visualViewport;if(!isIPhone||keypad.hidden||!viewport){keypad.style.removeProperty('width');keypad.style.removeProperty('left');keypad.style.removeProperty('right');keypad.style.removeProperty('top');keypad.style.removeProperty('bottom');return}const top=Math.max(viewport.offsetTop,viewport.offsetTop+viewport.height-keypad.offsetHeight);keypad.style.width=`${viewport.width}px`;keypad.style.left=`${viewport.offsetLeft}px`;keypad.style.right='auto';keypad.style.top=`${top}px`;keypad.style.bottom='auto'}
 function hideAmountKeypad(){$('amountKeypad').hidden=true;syncAmountKeypadViewport()}
-function showAmountKeypad(){const keypad=$('amountKeypad');keypad.hidden=false;requestAnimationFrame(syncAmountKeypadViewport)}
+function showAmountKeypad(){const keypad=$('amountKeypad');keypad.hidden=false;requestAnimationFrame(()=>{syncAmountKeypadViewport();requestAnimationFrame(syncAmountKeypadViewport)})}
 function configureAmountInput(){const price=$('price');document.body.classList.toggle('phone-keypad-enabled',isIPhone);price.readOnly=isIPhone;price.inputMode=isIPhone?'none':'decimal';if(!isIPhone)hideAmountKeypad();else syncAmountKeypadViewport()}
 configureAmountInput();
 window.addEventListener('resize',configureAmountInput);
