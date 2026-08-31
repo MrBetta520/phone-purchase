@@ -59,3 +59,11 @@ const baseRefreshSettings=refreshSettings;refreshSettings=function(){baseRefresh
 function renderColorStyles(){const box=$('colorStyleList');box.innerHTML='';colorStyles.forEach((style,i)=>{const row=document.createElement('div');row.className='color-style-row';const tag=document.createElement('span');tag.className='color-tag';tag.textContent=style.name;tag.style.color=style.textColor;tag.style.backgroundColor=style.bgColor;tag.style.borderColor=style.textColor+'55';const del=document.createElement('button');del.type='button';del.textContent='删除';del.onclick=async()=>{colorStyles.splice(i,1);await save();renderColorStyles();render()};row.append(tag,del);box.append(row)})}
 $('addColorStyle').onclick=async()=>{const name=$('colorStyleName').value.trim(),textColor=$('colorStyleText').value,bgColor=$('colorStyleBg').value;if(!name){alert('请先填写颜色名称。');return}const old=colorStyles.find(s=>s.name===name);if(old)Object.assign(old,{textColor,bgColor});else colorStyles.push({name,textColor,bgColor});$('colorStyleName').value='';await save();renderColorStyles();render()};
 (async()=>{const data=await load();records=Array.isArray(data)?data:data.records||[];buyerChoices=data.buyers||[];storeChoices=data.stores||[];products=data.products||[];colorStyles=data.colorStyles||[];$('exportDate').value=dayKey(new Date());render();refreshSettings();renderColorStyles()})();
+
+document.querySelectorAll('input').forEach(input => {
+  input.addEventListener('touchend', function (e) {
+    if (!this.readOnly && !this.disabled) {
+      this.focus();
+    }
+  });
+});
