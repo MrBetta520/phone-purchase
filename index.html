@@ -6,9 +6,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <link rel="apple-touch-icon" href="icon-v4-180.png?v=4" />
-  <link rel="manifest" href="manifest.webmanifest?v=8" />
+  <link rel="manifest" href="manifest.webmanifest?v=9" />
   <title>手机采购入账</title>
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <body>
   <main class="shell">
@@ -26,11 +26,11 @@
           <label>购买门店 <input id="store" required list="storeOptions" placeholder="输入门店名称后选择，或直接新增" /><datalist id="storeOptions"></datalist></label>
         </div>
         <div id="amountKeypad" class="amount-keypad" hidden aria-label="购买金额数字键盘">
+          <div class="amount-keypad-header"><button type="button" class="key-done" data-key="done">完成</button></div>
           <button type="button" data-key="1">1</button><button type="button" data-key="2">2</button><button type="button" data-key="3">3</button>
           <button type="button" data-key="4">4</button><button type="button" data-key="5">5</button><button type="button" data-key="6">6</button>
           <button type="button" data-key="7">7</button><button type="button" data-key="8">8</button><button type="button" data-key="9">9</button>
-          <button type="button" class="key-clear" data-key="clear">清除</button><button type="button" data-key="0">0</button><button type="button" data-key=".">.</button>
-          <button type="button" class="key-back" data-key="back">⌫</button><button type="button" class="key-done" data-key="done">完成</button>
+          <button type="button" data-key=".">.</button><button type="button" data-key="0">0</button><button type="button" class="key-back" data-key="back">⌫</button>
         </div>
         <p id="upcHint" class="hint">请在型号框直接扫描 UPC。保存时自动记录电脑当前时间。</p>
         <div class="actions"><button type="reset" class="secondary">清空</button><button type="submit">保存采购记录</button></div>
@@ -48,14 +48,14 @@
     </section>
   </main>
   <template id="rowTemplate"><tr><td class="time"></td><td class="imei"></td><td class="phone"></td><td class="buyer"></td><td class="price"></td><td class="store"></td><td><button class="delete secondary">删除</button></td></tr></template>
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=9"></script>
   <script>
     if('serviceWorker' in navigator){
       let refreshed=false;
       navigator.serviceWorker.addEventListener('controllerchange',()=>{
         if(!refreshed){refreshed=true;window.location.reload()}
       });
-      navigator.serviceWorker.register('sw.js?v=8').then(registration=>registration.update());
+      navigator.serviceWorker.register('sw.js?v=9').then(registration=>registration.update());
     }
   </script>
 </body>
