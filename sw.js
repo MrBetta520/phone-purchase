@@ -1,5 +1,5 @@
-const CACHE='phone-ledger-ipad-v7';
-const FILES=['./','./index.html','./app.js?v=7','./style.css?v=7','./manifest.webmanifest?v=7','./icon-v4-180.png','./icon-v4-512.png'];
+const CACHE='phone-ledger-ipad-v8';
+const FILES=['./','./index.html','./app.js?v=8','./style.css?v=8','./manifest.webmanifest?v=8','./icon-v4-180.png','./icon-v4-512.png'];
 
 async function networkFirst(request){
   try{
