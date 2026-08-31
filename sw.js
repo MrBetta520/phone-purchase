@@ -1,5 +1,5 @@
-const CACHE='phone-ledger-ipad-v10';
-const FILES=['./','./index.html','./app.js?v=10','./style.css?v=10','./manifest.webmanifest?v=10','./icon-v4-180.png','./icon-v4-512.png'];
+const CACHE='phone-ledger-mobile-v11';
+const FILES=['./','./index.html','./app.js?v=11','./style.css?v=11','./manifest.webmanifest?v=11','./icon-v4-180.png','./icon-v4-512.png'];
 
 async function networkFirst(request){
   try{
@@ -23,7 +23,7 @@ self.addEventListener('install',event=>event.waitUntil((async()=>{
 })()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{
   const names=await caches.keys();
-  await Promise.all(names.filter(name=>name.startsWith('phone-ledger-ipad-')&&name!==CACHE).map(name=>caches.delete(name)));
+  await Promise.all(names.filter(name=>(name.startsWith('phone-ledger-ipad-')||name.startsWith('phone-ledger-mobile-'))&&name!==CACHE).map(name=>caches.delete(name)));
   await self.clients.claim();
 })()));
 self.addEventListener('fetch',event=>{
