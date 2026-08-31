@@ -6,14 +6,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <link rel="apple-touch-icon" href="icon-v4-180.png?v=4" />
-  <link rel="manifest" href="manifest.webmanifest?v=9" />
+  <link rel="manifest" href="manifest.webmanifest?v=10" />
   <title>手机采购入账</title>
-  <link rel="stylesheet" href="style.css?v=9" />
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 <body>
   <main class="shell">
     <header><div><h1>手机采购入账</h1><p>通过导入/导出手动和 Windows 版同步。</p></div><div class="sync"><span id="saveState">已保存到本机</span><button class="secondary" id="settingsBtn">管理购买人/门店</button><input class="day-export" id="exportDate" type="date" title="选择导出日期" /><button class="secondary" id="exportDayBtn">按天导出</button><button class="secondary" id="exportAllBtn">导出全部购买记录</button><button class="secondary" id="exportBtn">导出数据</button><label class="secondary file-label">导入数据<input id="importInput" type="file" accept="application/json" /></label></div></header>
-    <section class="card" id="settingsCard" hidden><div class="section-head"><div><h2>管理购买人、门店和手机 UPC</h2><p>在此预先添加采购时可选择的内容。</p></div><button class="secondary" id="closeSettings">关闭</button></div><div class="settings-grid"><div><h3>购买人</h3><div class="add-line"><input id="newBuyer" placeholder="例如：LEE" /><button id="addBuyer" type="button">添加</button></div><div class="chips" id="buyerChips"></div></div><div><h3>购买门店</h3><div class="add-line"><input id="newStore" placeholder="例如：Apple SoHo" /><button id="addStore" type="button">添加</button></div><div class="chips" id="storeChips"></div></div></div><div class="product-manager"><h3>手机 UPC</h3><div class="product-line"><input id="newUpc" inputmode="numeric" placeholder="UPC" /><input id="newProductModel" placeholder="型号，例如 iPhone 17 Pro Max" /><input id="newColor" placeholder="颜色，例如 银色" /><input id="newStorage" placeholder="容量，例如 256GB" /><button id="addProduct" type="button">添加手机</button></div><div class="product-list" id="productList"></div></div><div class="product-manager"><h3>颜色显示设置</h3><p>颜色名称须与手机资料中的颜色一致；可自定义字体色和标签底色。</p><div class="color-style-line"><input id="colorStyleName" placeholder="例如：银色" /><label>字体色<input id="colorStyleText" type="color" value="#4b5563" /></label><label>标签底色<input id="colorStyleBg" type="color" value="#e5e7eb" /></label><button id="addColorStyle" type="button">保存颜色样式</button></div><div class="color-style-list" id="colorStyleList"></div></div></section>
+    <section class="card" id="settingsCard" hidden><div class="section-head"><div><h2>管理购买人、门店和手机 UPC</h2><p>在此预先添加采购时可选择的内容。</p></div><button class="secondary" id="closeSettings">关闭</button></div><div class="settings-grid"><div><h3>购买人</h3><div class="add-line"><input id="newBuyer" placeholder="例如：ABC" /><button id="addBuyer" type="button">添加</button></div><div class="chips" id="buyerChips"></div></div><div><h3>购买门店</h3><div class="add-line"><input id="newStore" placeholder="例如：Apple SoHo" /><button id="addStore" type="button">添加</button></div><div class="chips" id="storeChips"></div></div></div><div class="product-manager"><h3>手机 UPC</h3><div class="product-line"><input id="newUpc" inputmode="numeric" placeholder="UPC" /><input id="newProductModel" placeholder="型号，例如 iPhone 17 Pro Max" /><input id="newColor" placeholder="颜色，例如 银色" /><input id="newStorage" placeholder="容量，例如 256GB" /><button id="addProduct" type="button">添加手机</button></div><div class="product-list" id="productList"></div></div><div class="product-manager"><h3>颜色显示设置</h3><p>颜色名称须与手机资料中的颜色一致；可自定义字体色和标签底色。</p><div class="color-style-line"><input id="colorStyleName" placeholder="例如：银色" /><label>字体色<input id="colorStyleText" type="color" value="#4b5563" /></label><label>标签底色<input id="colorStyleBg" type="color" value="#e5e7eb" /></label><button id="addColorStyle" type="button">保存颜色样式</button></div><div class="color-style-list" id="colorStyleList"></div></div></section>
     <section class="card entry-card">
       <h2>新增采购记录</h2>
       <form id="purchaseForm" autocomplete="off">
@@ -27,10 +27,10 @@
         </div>
         <div id="amountKeypad" class="amount-keypad" hidden aria-label="购买金额数字键盘">
           <div class="amount-keypad-header"><button type="button" class="key-done" data-key="done">完成</button></div>
-          <button type="button" data-key="1">1</button><button type="button" data-key="2">2</button><button type="button" data-key="3">3</button>
-          <button type="button" data-key="4">4</button><button type="button" data-key="5">5</button><button type="button" data-key="6">6</button>
-          <button type="button" data-key="7">7</button><button type="button" data-key="8">8</button><button type="button" data-key="9">9</button>
-          <button type="button" data-key=".">.</button><button type="button" data-key="0">0</button><button type="button" class="key-back" data-key="back">⌫</button>
+          <button type="button" data-key="1"><span>1</span></button><button type="button" data-key="2"><span>2</span><small>ABC</small></button><button type="button" data-key="3"><span>3</span><small>DEF</small></button>
+          <button type="button" data-key="4"><span>4</span><small>GHI</small></button><button type="button" data-key="5"><span>5</span><small>JKL</small></button><button type="button" data-key="6"><span>6</span><small>MNO</small></button>
+          <button type="button" data-key="7"><span>7</span><small>PQRS</small></button><button type="button" data-key="8"><span>8</span><small>TUV</small></button><button type="button" data-key="9"><span>9</span><small>WXYZ</small></button>
+          <button type="button" class="key-decimal" data-key="."><span>.</span></button><button type="button" data-key="0"><span>0</span></button><button type="button" class="key-back" data-key="back">⌫</button>
         </div>
         <p id="upcHint" class="hint">请在型号框直接扫描 UPC。保存时自动记录电脑当前时间。</p>
         <div class="actions"><button type="reset" class="secondary">清空</button><button type="submit">保存采购记录</button></div>
@@ -48,14 +48,14 @@
     </section>
   </main>
   <template id="rowTemplate"><tr><td class="time"></td><td class="imei"></td><td class="phone"></td><td class="buyer"></td><td class="price"></td><td class="store"></td><td><button class="delete secondary">删除</button></td></tr></template>
-  <script src="app.js?v=9"></script>
+  <script src="app.js?v=10"></script>
   <script>
     if('serviceWorker' in navigator){
       let refreshed=false;
       navigator.serviceWorker.addEventListener('controllerchange',()=>{
         if(!refreshed){refreshed=true;window.location.reload()}
       });
-      navigator.serviceWorker.register('sw.js?v=9').then(registration=>registration.update());
+      navigator.serviceWorker.register('sw.js?v=10').then(registration=>registration.update());
     }
   </script>
 </body>
