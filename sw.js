@@ -1,5 +1,5 @@
-const CACHE='phone-ledger-mobile-v13';
-const FILES=['./','./index.html','./app.js?v=13','./style.css?v=13','./manifest.webmanifest?v=13','./icon-v4-180.png','./icon-v4-512.png'];
+const CACHE='phone-ledger-mobile-v15';
+const FILES=['./','./index.html','./app.js?v=15','./style.css?v=15','./manifest.webmanifest?v=15','./icon-v4-180.png','./icon-v4-512.png'];
 
 async function networkFirst(request){
   try{

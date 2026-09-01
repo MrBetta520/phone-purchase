@@ -6,9 +6,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <link rel="apple-touch-icon" href="icon-v4-180.png?v=4" />
-  <link rel="manifest" href="manifest.webmanifest?v=13" />
+  <link rel="manifest" href="manifest.webmanifest?v=15" />
   <title>手机采购入账</title>
-  <link rel="stylesheet" href="style.css?v=13" />
+  <link rel="stylesheet" href="style.css?v=15" />
 </head>
 <body>
   <main class="shell">
@@ -28,9 +28,9 @@
         </div>
         <div id="amountKeypad" class="amount-keypad" hidden aria-label="购买金额数字键盘">
           <div class="amount-keypad-header"><button type="button" class="key-done" data-key="done">完成</button></div>
-          <button type="button" data-key="1"><span>1</span></button><button type="button" data-key="2"><span>2</span><small>ABC</small></button><button type="button" data-key="3"><span>3</span><small>DEF</small></button>
-          <button type="button" data-key="4"><span>4</span><small>GHI</small></button><button type="button" data-key="5"><span>5</span><small>JKL</small></button><button type="button" data-key="6"><span>6</span><small>MNO</small></button>
-          <button type="button" data-key="7"><span>7</span><small>PQRS</small></button><button type="button" data-key="8"><span>8</span><small>TUV</small></button><button type="button" data-key="9"><span>9</span><small>WXYZ</small></button>
+          <button type="button" data-key="1"><span>1</span></button><button type="button" data-key="2"><span>2</span></button><button type="button" data-key="3"><span>3</span></button>
+          <button type="button" data-key="4"><span>4</span></button><button type="button" data-key="5"><span>5</span></button><button type="button" data-key="6"><span>6</span></button>
+          <button type="button" data-key="7"><span>7</span></button><button type="button" data-key="8"><span>8</span></button><button type="button" data-key="9"><span>9</span></button>
           <button type="button" class="key-decimal" data-key="."><span>.</span></button><button type="button" data-key="0"><span>0</span></button><button type="button" class="key-back" data-key="back">⌫</button>
         </div>
         <p id="upcHint" class="hint">请在型号框直接扫描 UPC。保存时自动记录电脑当前时间。</p>
@@ -49,14 +49,14 @@
     </section>
   </main>
   <template id="rowTemplate"><tr><td class="time"></td><td class="imei"></td><td class="phone"></td><td class="buyer"></td><td class="price"></td><td class="store"></td><td><button class="delete secondary">删除</button></td></tr></template>
-  <script src="app.js?v=13"></script>
+  <script src="app.js?v=15"></script>
   <script>
     if('serviceWorker' in navigator){
       let refreshed=false;
       navigator.serviceWorker.addEventListener('controllerchange',()=>{
         if(!refreshed){refreshed=true;window.location.reload()}
       });
-      navigator.serviceWorker.register('sw.js?v=13').then(registration=>registration.update());
+      navigator.serviceWorker.register('sw.js?v=15').then(registration=>registration.update());
     }
   </script>
 </body>
